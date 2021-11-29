@@ -50,7 +50,7 @@ function inicio_sesion() {
     let email = $("#inputCorreo").val();
     let password = $("#inputContra").val();
     $.ajax({
-        url: "http://localhost:8081/api/user/"+email+"/"+password,
+        url: "http://129.151.118.40:8081/api/user/"+email+"/"+password,
         type: "GET",
         dataType: "json",
         success: respuesta => {
