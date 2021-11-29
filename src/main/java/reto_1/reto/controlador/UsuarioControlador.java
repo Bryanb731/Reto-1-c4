@@ -18,10 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reto_1.reto.modelo.Usuario;
 import reto_1.reto.servicio.UsuarioServicio;
 
-/**
- * 
- * @author Janus
- */
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
@@ -72,8 +68,6 @@ public class UsuarioControlador {
      *  existen en la base de datos y si coinciden
      */
     @GetMapping("/{email}/{password}")
-    // public Map<String, Object> validaciones(@PathVariable("email") String email, @PathVariable("password") String password) {
-    //     return usuarioServicio.validacion(email, password);
     public Optional<Usuario> validar(@PathVariable("email") String email, @PathVariable("password") String password) {
         return usuarioServicio.consultas(email, password);
     }

@@ -8,10 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import reto_1.reto.modelo.Usuario;
 
-/**
- * 
- * @author Janus
- */
 @Repository
 public class UsuarioOperacionesRepositorio {
 

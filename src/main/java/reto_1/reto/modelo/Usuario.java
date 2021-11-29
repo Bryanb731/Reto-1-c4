@@ -9,10 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * 
- * @author Janus
- */
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
