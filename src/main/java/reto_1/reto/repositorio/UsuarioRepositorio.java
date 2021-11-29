@@ -1,6 +1,5 @@
 package reto_1.reto.repositorio;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +17,6 @@ public interface UsuarioRepositorio extends CrudRepository<Usuario, Integer> {
     Optional<Usuario> findByEmail(String email);
 
     @Query(value = "SELECT * FROM usuarios WHERE user_password = ?1", nativeQuery = true)
-    List<Usuario> findByPassword(String password);
+    Optional<Usuario> findByPassword(String password);
 
 }

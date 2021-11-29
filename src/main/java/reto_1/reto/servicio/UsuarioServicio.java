@@ -1,11 +1,12 @@
 package reto_1.reto.servicio;
 
-import java.util.LinkedHashMap;
+// import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
+// import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.parsing.EmptyReaderEventListener;
 import org.springframework.stereotype.Service;
 
 import reto_1.reto.modelo.Usuario;
@@ -52,43 +53,58 @@ public class UsuarioServicio {
         }
     }
 
-    public Map<String, Object> validacion(String email, String password) {
-        Map<String, Object> response = new LinkedHashMap<>();
-        Integer id = 0;
-        String correo = "";
-        String contra = "";
-        String nombre = "";
+    // public Map<String, Object> validacion(String email, String password) {
+    //     Map<String, Object> response = new LinkedHashMap<>();
+    //     Integer id = 0;
+    //     String correo = "";
+    //     String contra = "";
+    //     String nombre = "";
 
-        for(Usuario user: usuarioOperacionesRepositorio.getAll()) {
-            id = user.getId();
-            correo = user.getEmail();
-            contra = user.getPassword();
-            nombre = user.getName();
-        }
+    //     for(Usuario user: usuarioOperacionesRepositorio.getAll()) {
+    //         id = user.getId();
+    //         correo = user.getEmail();
+    //         contra = user.getPassword();
+    //         nombre = user.getName();
+    //     }
 
-        response.put("id", id);
-        response.put("email", correo);
-        response.put("password", contra);
-        response.put("name", nombre);
+    //     response.put("id", id);
+    //     response.put("email", correo);
+    //     response.put("password", contra);
+    //     response.put("name", nombre);
 
-        System.out.println(contra + " " + password);
-        System.out.println(correo + " " + email);
+    //     System.out.println(contra + " " + password);
+    //     System.out.println(correo + " " + email);
 
+    //     // response.put("email", correo);
+    //     // response.put("password", contra);
+    //     // response.put("name", nombre);
 
-        // response.put("email", correo);
-        // response.put("password", contra);
-        // response.put("name", nombre);
+    //     if(!email.equals(correo) || !password.equals(contra)) {
+    //         response.put("id", "null");
+    //         response.put("email", email);
+    //         response.put("password", password);
+    //         response.put("name", "NO DEFINIDO");
+    //         return response;
+    //     } else {
+    //         System.out.println(response);
+    //         return response;
+    //     }
+    // }
 
-        if(!email.equals(correo) || !password.equals(contra)) {
-            response.put("id", "null");
-            response.put("email", email);
-            response.put("password", password);
-            response.put("name", "NO DEFINIDO");
-            return response;
-        } else {
-            System.out.println(response);
-            return response;
-        }
+    public Optional<Usuario> consultas(String email, String password) {
+        Usuario usuario = new Usuario(email, password, "NO DEFINIDO");
+        Optional<Usuario> buscar = usuarioOperacionesRepositorio.buscarContraseña(password);
+        Optional<Usuario> user = Optional.of(usuario);
+        String correo = email;
+
+        if(!buscar.isEmpty()) {
+            if(!buscar.get().getEmail().equals(correo)) {
+                return user;
+            } else {
+                return buscar;
+            }
+        } 
+        return user;
     }
 
 }

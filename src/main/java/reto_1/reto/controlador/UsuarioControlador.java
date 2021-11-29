@@ -1,7 +1,7 @@
 package reto_1.reto.controlador;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -72,8 +72,10 @@ public class UsuarioControlador {
      *  existen en la base de datos y si coinciden
      */
     @GetMapping("/{email}/{password}")
-    public Map<String, Object> validaciones(@PathVariable("email") String email, @PathVariable("password") String password) {
-        return usuarioServicio.validacion(email, password);
+    // public Map<String, Object> validaciones(@PathVariable("email") String email, @PathVariable("password") String password) {
+    //     return usuarioServicio.validacion(email, password);
+    public Optional<Usuario> validar(@PathVariable("email") String email, @PathVariable("password") String password) {
+        return usuarioServicio.consultas(email, password);
     }
 
 }

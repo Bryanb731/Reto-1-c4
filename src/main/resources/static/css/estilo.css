@@ -1,0 +1,17 @@
+
+.formulario {
+    width: 500px;
+}
+
+.registro {
+    display: none;
+}
+
+.correo-valido {
+    color: rgb(0, 158, 61);
+}
+
+.correo-no-valido {
+    color: rgb(206, 0, 0);
+}
+

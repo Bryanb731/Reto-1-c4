@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesion</title>
+    <link rel="stylesheet" href="webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+<body>
+    <div class="container formulario">
+        <div class="justify-content-center">
+            <form class="inicio needs-validation">
+                <h1 class="text-center">Inicio de sesión</h1>
+                <div class="mb-3">
+                    <label for="inputCorreo" class="form-label">Correo</label>
+                    <input type="text" class="form-control" id="inputCorreo" placeholder="Ingrese correo" maxlength="50">
+                    <div class="validacion"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputContra" class="form-label">Contraseña</label>
+                    <input type="text" class="form-control" id="inputContra" placeholder="Ingrese contraseña" maxlength="50">
+                </div>
+                <input type="button" class="btn btn-success" id="btnIniciar" onclick="inicio_sesion()" value="Iniciar sesión"><br>
+                <small>¿No tienes una cuenta?</small>
+                <a href="#" onclick="menu_registrar()">Crea tu cuenta aquí</a>
+                <div class="mb-3" id="userEx"></div>
+            </form>
+            <!----------------------formulario de registro--------------------------->
+            <form class="registro">
+                <h1 class="text-center">Crear cuenta</h1>
+                <div class="mb-3">
+                    <label for="inputNombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="inputNombre" placeholder="Ingrese nombre" maxlength="80">
+                </div>
+                <div class="mb-3">
+                    <label for="inputCorreoRegistro" class="form-label">Correo</label>
+                    <input type="text" class="form-control" id="inputCorreoRegistro" placeholder="Ingrese correo" maxlength="50">
+                    <div class="validacion-correo-registro"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputContraRegistro" class="form-label">Contraseña</label>
+                    <input type="text" class="form-control" id="inputContraRegistro" placeholder="Ingrese contraseña" maxlength="50">
+                    <div class="contra-validacion"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputContraConfirm" class="form-label">Confirmar contraseña</label>
+                    <input type="text" class="form-control" id="inputContraConfirm" placeholder="Ingrese contraseña" maxlength="50">
+                </div>
+                <input type="button" class="btn btn-secondary" id="btnRegistrar" onclick="registrar()" value="Registrar"><br>
+                <small>¿Ya tienes una cuenta?</small>
+                <a href="#" onclick="regresar_inicio()">inicia sesión aquí</a>
+            </form>
+        </div>
+    </div>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/registro.js"></script>
+</body>
+</html>

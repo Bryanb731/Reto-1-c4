@@ -34,7 +34,7 @@ public class UsuarioOperacionesRepositorio {
         return usuarioRepositorio.findByEmail(email);
     }
 
-    public List<Usuario> buscarNombre(String password) {
+    public Optional<Usuario> buscarContraseña(String password) {
         return usuarioRepositorio.findByPassword(password);
     }
 
