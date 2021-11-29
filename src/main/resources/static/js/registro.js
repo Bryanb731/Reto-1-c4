@@ -61,7 +61,7 @@ function registrar() {
         name: $("#inputNombre").val()
     };
     $.ajax({
-        url: "http://129.151.118.40:8081/api/user/all",
+        url: "http://129.151.118.40:8081/api/user/new",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(usuario),
