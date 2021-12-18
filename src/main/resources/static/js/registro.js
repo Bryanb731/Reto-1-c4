@@ -67,6 +67,7 @@ function registrar() {
         data: JSON.stringify(usuario),
         success: respuesta => {
             console.log(respuesta.id);
+            alert("Usuario " + "(" + respuesta.name + ")" + " registrado correctamente.")
             $("#inputCorreoRegistro").val("");
             $("#inputContraRegistro").val("");
             $("#inputContraConfirm").val("");

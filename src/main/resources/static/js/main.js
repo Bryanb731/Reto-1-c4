@@ -58,7 +58,7 @@ function inicio_sesion() {
             if(respuesta.name == "NO DEFINIDO") {
                 $("#userEx").html("El usuario con correo " + email + " no está registrado.");
             } else {
-                $("#userEx").html("Inicio de sesión con usuario: " + respuesta.name);
+                $("#userEx").html("<small class=\"green\">Inicio de sesión con usuario: </small>" + respuesta.name);
             }
         }
     });
